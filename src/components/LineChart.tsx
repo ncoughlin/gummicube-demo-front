@@ -105,7 +105,7 @@ const LineChart = ({ data, metrics }: LineChartProps) => {
     let dimensions = {
       width: width,
       height: height,
-      margins: 0,
+      margins: 10,
       containerWidth: 0,
       containerHeight: 0,
     };
@@ -114,7 +114,6 @@ const LineChart = ({ data, metrics }: LineChartProps) => {
     dimensions.containerHeight =
       dimensions.height - dimensions.margins * 2 || 0;
 
-    console.log(dimensions);  
     return dimensions;
   }, [width, height]);
 
@@ -207,15 +206,15 @@ const LineChart = ({ data, metrics }: LineChartProps) => {
     }
   }, [svg, container, xAccessor, xScale, data, metrics, yScale]);
 
-  // draw x axis
-  //   useEffect(() => {
-  //     svg.selectAll('.xAxis').remove();
-  //     container
-  //       .append('g')
-  //       .classed('xAxis', true)
-  //       .style('transform', `translateY(${dimensions.containerHeight}px)`)
-  //       .call(xAxis);
-  //   }, [svg, container, xAxis, dimensions]);
+  //draw x axis
+  // useEffect(() => {
+  //   svg.selectAll(".xAxis").remove();
+  //   container
+  //     .append("g")
+  //     .classed("xAxis", true)
+  //     .style("transform", `translateY(${dimensions.containerHeight}px)`)
+  //     .call(xAxis);
+  // }, [svg, container, xAxis, dimensions]);
 
   // draw tooltip
   useEffect(() => {

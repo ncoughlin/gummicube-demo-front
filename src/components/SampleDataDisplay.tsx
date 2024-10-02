@@ -1,6 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import LineChart from "./LineChart";
 import { Metric, DataPoint } from "./LineChart";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const SampleDataDisplay = () => {
   const { isPending, error, data } = useQuery({
@@ -42,7 +50,18 @@ const SampleDataDisplay = () => {
 
   return (
     <div className="w-full">
-      <LineChart data={data} metrics={linechartMetrics} />
+      <Card>
+        <CardHeader>
+          <CardTitle>Pulumi DevOps Sample</CardTitle>
+          <CardDescription>
+            The back-end infrastructure (API, Lambda and PostgreSQL Database)
+            that serves this chart data was generated with Pulumi IAC framework.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <LineChart data={data} metrics={linechartMetrics} />
+        </CardContent>
+      </Card>
     </div>
   );
 };
