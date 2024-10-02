@@ -1,7 +1,20 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as d3 from "d3";
-// types
-import { DataPoint, Metric } from "./types/Analytics.ts";
+
+export interface DataPoint {
+  date: string; // ISO 8601 formatted date string
+  sales: number; // String representation of a number
+  cost: number; // String representation of a number
+  clicks: number; // String representation of a number
+}
+
+export interface Metric {
+  key: string;
+  label: string;
+  accessor: (d: DataPoint) => number;
+  color: string;
+  backgroundColor: string;
+}
 
 interface Dimensions {
   width: number;
@@ -13,6 +26,7 @@ interface Dimensions {
 
 type LineChartProps = {
   data: DataPoint[];
+  metrics: Metric[];
 };
 
 const generateYScale = (
@@ -77,25 +91,7 @@ const calculateTooltipYPos = (mousePos: number[], selectedMetrics: any[]) => {
   return offset;
 };
 
-// expected metrics in report
-const metrics: Metric[] = [
-  {
-    key: "screenPageViews",
-    label: "Views",
-    accessor: (d: DataPoint) => d.screenPageViews,
-    color: "var(--text-primary)",
-    backgroundColor: "var(--primary-semi-transparent)",
-  },
-  {
-    key: "totalUsers",
-    label: "Users",
-    accessor: (d: DataPoint) => d.totalUsers,
-    color: "var(--blue)",
-    backgroundColor: "var(--blue-semi-transparent)",
-  },
-];
-
-const LineChart = ({ data }: LineChartProps) => {
+const LineChart = ({ data, metrics }: LineChartProps) => {
   // Element References
   const svgRef = useRef<SVGSVGElement | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);
@@ -104,8 +100,6 @@ const LineChart = ({ data }: LineChartProps) => {
   // State to track width and height of SVG Container
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
-
-  let parseDate = d3.timeParse("%Y%m%d");
 
   const dimensions: Dimensions = useMemo(() => {
     let dimensions = {
@@ -154,11 +148,10 @@ const LineChart = ({ data }: LineChartProps) => {
   }, [svg, dimensions]);
 
   const xAccessor = useMemo(() => {
-    const parseDate = d3.timeParse("%Y%m%d");
-
-    return (d: DataPoint) => parseDate(d.date);
+    return (d: DataPoint) => new Date(d.date);
   }, []);
 
+  // expected date format is Date object
   const xScale = useMemo(() => {
     return d3
       .scaleTime()
@@ -182,7 +175,7 @@ const LineChart = ({ data }: LineChartProps) => {
   ) => {
     return d3
       .line<DataPoint>()
-      .x((d) => xScale(xAccessor(d) || new Date(0)))
+      .x((d) => xScale(xAccessor(d)))
       .y((d) => scale(accessor(d)))
       .curve(d3.curveBumpX);
   };
@@ -224,7 +217,7 @@ const LineChart = ({ data }: LineChartProps) => {
     try {
       const tooltip = d3.select(tooltipRef.current);
 
-      const onTouchMouseMoveMouse = (event: any, d: unknown) => {
+      const onTouchMouseMoveMouse = (event: any) => {
         const mousePos = d3.pointer(event, this);
 
         // x coordinate stored in mousePos index 0
@@ -280,7 +273,7 @@ const LineChart = ({ data }: LineChartProps) => {
 
         tooltip
           .select(".date")
-          .text(`${dateFormatter(xAccessor(hoveredIndexData) || new Date(0))}`);
+          .text(`${dateFormatter(xAccessor(hoveredIndexData))}`);
 
         metrics.forEach((metric) => {
           tooltip
@@ -324,9 +317,7 @@ const LineChart = ({ data }: LineChartProps) => {
         .attr("width", dimensions.containerWidth)
         .attr("height", dimensions.containerHeight)
         .style("opacity", 0)
-        .on("touchmouse mousemove", (event, d) =>
-          onTouchMouseMoveMouse(event, d)
-        )
+        .on("touchmouse mousemove", (event, d) => onTouchMouseMoveMouse(event))
         .on("mouseenter", () => onMouseEnter())
         .on("mouseleave", () => onMouseLeave());
     } catch (error) {
