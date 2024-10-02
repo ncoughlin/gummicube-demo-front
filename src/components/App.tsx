@@ -42,6 +42,78 @@ function App() {
           allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
         ></iframe>
+        <Spacer vertical={6} verticalMobile={2} />
+        <div className="max-w-4xl">
+          <h3>Notes</h3>
+          <p className=" text-xl">
+            Here is a list of the notes I generated while working on this.
+          </p>
+          <ul>
+            <li>
+              <a
+                className="font-medium text-primary underline underline-offset-4"
+                href="https://ncoughlin.com/posts/pulumi-iac-basics"
+                target="_blank"
+              >
+                {`Ncoughlin > Pulumi Basics`}
+              </a>
+            </li>
+            <li>
+              <a
+                className="font-medium text-primary underline underline-offset-4"
+                href="https://ncoughlin.com/posts/pulumi-lambda"
+                target="_blank"
+              >
+                {`Ncoughlin > Pulumi Lambda`}
+              </a>
+            </li>
+            <li>
+              <a
+                className="font-medium text-primary underline underline-offset-4"
+                href="https://ncoughlin.com/posts/pulumi-api-gateway"
+                target="_blank"
+              >
+                {`Ncoughlin > Pulumi API Gateway`}
+              </a>
+            </li>
+            <li>
+              <a
+                className="font-medium text-primary underline underline-offset-4"
+                href="https://ncoughlin.com/posts/pulumi-rds"
+                target="_blank"
+              >
+                {`Ncoughlin > Pulumi RDS`}
+              </a>
+            </li>
+            <li>
+              <a
+                className="font-medium text-primary underline underline-offset-4"
+                href="https://ncoughlin.com/posts/pulumi-s3-bucket"
+                target="_blank"
+              >
+                {`Ncoughlin > Pulumi S3 Buckets`}
+              </a>
+            </li>
+            <li>
+              <a
+                className="font-medium text-primary underline underline-offset-4"
+                href="https://ncoughlin.com/posts/aws-rds-basics"
+                target="_blank"
+              >
+                {`Ncoughlin > AWS RDS Basics`}
+              </a>
+            </li>
+            <li>
+              <a
+                className="font-medium text-primary underline underline-offset-4"
+                href="https://ncoughlin.com/posts/postgressql-basics"
+                target="_blank"
+              >
+                {`Ncoughlin > PostgreSQL Basics`}
+              </a>
+            </li>
+          </ul>
+        </div>
         <Spacer vertical={20} verticalMobile={4} />
       </div>
     </div>

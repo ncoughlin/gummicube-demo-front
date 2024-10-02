@@ -112,3 +112,7 @@ p {
 h3 {
   @apply scroll-m-20 text-2xl font-semibold tracking-tight;
 }
+
+ul {
+  @apply my-6 ml-6 list-disc [&>li]:mt-2;
+}
