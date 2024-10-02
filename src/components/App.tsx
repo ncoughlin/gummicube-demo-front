@@ -2,7 +2,7 @@
 
 // components
 import Spacer from "./Spacer";
-import LineChart from "./LineChart";
+import SampleDataDisplay from "./SampleDataDisplay";
 // images
 import gummicubexncoughlin from "../assets/gummicube_x_ncoughlin.png";
 
@@ -14,7 +14,7 @@ function App() {
       <div className="min-h-screen  flex flex-col items-center">
         <div className="w-full max-w-6xl flex flex-col items-center">
           <Spacer vertical={10} verticalMobile={2} />
-          <img src={gummicubexncoughlin} className="max-w-xl" />
+          <img src={gummicubexncoughlin} className="max-w-md" />
           <Spacer vertical={6} verticalMobile={2} />
           <p className="max-w-2xl">
             Dave,
@@ -28,7 +28,7 @@ function App() {
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
           <Spacer vertical={6} verticalMobile={2} />
-          <LineChart />
+          <SampleDataDisplay />
         </div>
       </div>
     
