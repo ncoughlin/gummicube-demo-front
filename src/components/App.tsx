@@ -29,8 +29,9 @@ function App() {
   return (
     <>
       <div className="min-h-screen  flex flex-col items-center">
-        <div className="p-6 rounded-lg shadow-lg w-full max-w-md mt-10">
-          <img src={gummicubexncoughlin} />
+        <div className="w-full max-w-6xl flex flex-col items-center">
+          <Spacer vertical={10} verticalMobile={2} />
+          <img src={gummicubexncoughlin} className="max-w-xl"/>
           <Spacer vertical={10} verticalMobile={2} />
           <h1 className="text-3xl font-bold mb-4 text-center">
             Welcome to My Website
