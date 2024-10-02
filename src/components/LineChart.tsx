@@ -13,7 +13,11 @@ const LineChart = () => {
 
   if (error) return "An error has occurred: " + error.message;
 
-  return <div>{data}</div>;
+  return (
+    <div>
+      <p>{JSON.stringify(data)}</p>
+    </div>
+  );
 };
 
 export default LineChart;

@@ -28,7 +28,7 @@ function App() {
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
           <Spacer vertical={6} verticalMobile={2} />
-          {/* <LineChart /> */}
+          <LineChart />
         </div>
       </div>
     
