@@ -20,14 +20,14 @@ const SampleDataDisplay = () => {
     {
       key: "sales",
       label: "Sales",
-      accessor: (d: DataPoint) => d.sales,
+      accessor: (d: DataPoint) => Number(d.sales),
       color: "var(--text-primary)",
       backgroundColor: "var(--primary-semi-transparent)",
     },
     {
       key: "cost",
       label: "Cost",
-      accessor: (d: DataPoint) => d.cost,
+      accessor: (d: DataPoint) => Number(d.cost),
       color: "var(--blue)",
       backgroundColor: "var(--blue-semi-transparent)",
     },
