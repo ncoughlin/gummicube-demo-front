@@ -12,6 +12,7 @@ function App() {
         <img src={gummicubexncoughlin} className="max-w-sm" />
         <Spacer vertical={6} verticalMobile={2} />
         <div className="max-w-4xl">
+          <h3>Pulumi + RDS Sample</h3>
           <p className=" text-xl">
             This page is intended to demonstrate a basic proficiency with the
             <strong> Pulumi </strong>infrastructure as code framework. The data

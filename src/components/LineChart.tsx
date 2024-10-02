@@ -163,9 +163,9 @@ const LineChart = ({ data, metrics }: LineChartProps) => {
       .range([0, dimensions.containerWidth!]);
   }, [dimensions, xAccessor, data]);
 
-  const xAxis = useMemo(() => {
-    return d3.axisBottom(xScale);
-  }, [xScale]);
+  // const xAxis = useMemo(() => {
+  //   return d3.axisBottom(xScale);
+  // }, [xScale]);
 
   const yScale = useMemo(() => {
     return generateYScale(data, metrics, {
@@ -321,7 +321,7 @@ const LineChart = ({ data, metrics }: LineChartProps) => {
         .attr("width", dimensions.containerWidth)
         .attr("height", dimensions.containerHeight)
         .style("opacity", 0)
-        .on("touchmouse mousemove", (event, d) => onTouchMouseMoveMouse(event))
+        .on("touchmouse mousemove", (event) => onTouchMouseMoveMouse(event))
         .on("mouseenter", () => onMouseEnter())
         .on("mouseleave", () => onMouseLeave());
     } catch (error) {
