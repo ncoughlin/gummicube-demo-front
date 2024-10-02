@@ -335,7 +335,7 @@ const LineChart = ({ data, metrics }: LineChartProps) => {
       <div ref={svgContainer} className="line-chart-svg-container">
         <svg ref={svgRef} />
         <div ref={tooltipRef} className="lc-tooltip">
-          <div className="date mb-point5"></div>
+          <div className="date"></div>
           <div className="data"></div>
         </div>
       </div>

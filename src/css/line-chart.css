@@ -74,6 +74,10 @@
   margin: 0;
 }
 
+.lc-tooltip .date {
+  margin-bottom: 0.5rem;
+}
+
 .tool-tip-dot {
   /* this is a vector, it is styled by D3 in the component */
 }

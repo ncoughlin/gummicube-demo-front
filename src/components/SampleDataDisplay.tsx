@@ -31,6 +31,13 @@ const SampleDataDisplay = () => {
       color: "var(--blue)",
       backgroundColor: "var(--blue-semi-transparent)",
     },
+    {
+      key: "clicks",
+      label: "Clicks",
+      accessor: (d: DataPoint) => Number(d.clicks),
+      color: "var(--brown)",
+      backgroundColor: "var(--brown-semi-transparent)",
+    },
   ];
 
   return (
