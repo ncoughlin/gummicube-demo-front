@@ -34,7 +34,7 @@ const SampleDataDisplay = () => {
   ];
 
   return (
-    <div>
+    <div className="w-full">
       <LineChart data={data} metrics={linechartMetrics} />
     </div>
   );

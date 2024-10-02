@@ -113,6 +113,8 @@ const LineChart = ({ data, metrics }: LineChartProps) => {
     dimensions.containerWidth = dimensions.width - dimensions.margins * 2;
     dimensions.containerHeight =
       dimensions.height - dimensions.margins * 2 || 0;
+
+    console.log(dimensions);  
     return dimensions;
   }, [width, height]);
 
@@ -138,6 +140,9 @@ const LineChart = ({ data, metrics }: LineChartProps) => {
   }, [dimensions]);
 
   const container = useMemo(() => {
+    // remove all previous elements
+    svg.selectAll(".line-chart-inner-container").remove();
+
     return svg
       .append("g")
       .classed("line-chart-inner-container", true)
