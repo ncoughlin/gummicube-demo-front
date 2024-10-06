@@ -36,8 +36,16 @@ build:
 pages:
   stage: deploy
   script:
+    - echo "Listing current directory contents:"
+    - ls -la
+    - echo "Attempting to move dist/ to public/"
     # Move the built files to the public directory
     - mv dist/ public/
+    - echo "Contents after moving:"
+    - ls -la
+    - echo "Contents of public/:"
+    - ls -la public/
+
   artifacts:
     paths:
       - public
