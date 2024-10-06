@@ -2,7 +2,7 @@
 import Spacer from "./Spacer";
 import SampleDataDisplay from "./SampleDataDisplay";
 // images
-import gummicubexncoughlin from "../assets/gummicube_x_ncoughlin.png";
+import gummicubexncoughlin from "@/assets/gummicube_x_ncoughlin.png";
 
 function App() {
   return (
