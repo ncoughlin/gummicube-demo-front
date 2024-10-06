@@ -36,13 +36,12 @@ build:
 pages:
   stage: deploy
   script:
-    - echo "Listing current directory contents:"
+    - echo "Listing current directory contents before moving:"
     - ls -la
-    - echo "Attempting to move dist/ to public/"
-    # Move the built files to the public directory
-    - mv dist/ public/
-    - echo "Contents after moving:"
-    - ls -la
+    # Create public directory if it doesn't exist
+    - mkdir -p public
+    # Move contents of dist/ into public/
+    - mv dist/* public/
     - echo "Contents of public/:"
     - ls -la public/
 
