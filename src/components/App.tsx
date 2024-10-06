@@ -9,7 +9,6 @@ function App() {
     <div id="main-wrapper" className="min-h-screen  flex flex-col items-center">
       <div className="w-full max-w-6xl flex flex-col items-center">
         <Spacer vertical={10} verticalMobile={2} />
-        test
         <img src={gummicubexncoughlin} className="max-w-sm" />
         <Spacer vertical={6} verticalMobile={2} />
         <div className="max-w-4xl">

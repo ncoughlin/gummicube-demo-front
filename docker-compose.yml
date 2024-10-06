@@ -1,10 +1,10 @@
 services:
-  sampleproject:
-    image: gummicube-demo-front
+  gummicube-demo-front:
+    image: vite
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: Dockerfile.${NODE_ENV:-production}
     environment:
-      NODE_ENV: production
+      NODE_ENV: ${NODE_ENV:-production}
     ports:
       - 3000:3000

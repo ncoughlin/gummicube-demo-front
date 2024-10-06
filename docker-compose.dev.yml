@@ -1,0 +1,6 @@
+services:
+  gummicube-demo-front:
+    build:
+      dockerfile: Dockerfile.development
+    environment:
+      NODE_ENV: development
