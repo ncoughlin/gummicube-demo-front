@@ -16,8 +16,13 @@ before_script:
 build:
   stage: build
   script:
-    # Build the Docker image using your Dockerfile
-    - docker build -t my-vite-app:latest .
+    # Debugging: Display current directory and list files
+    - echo "Current directory:"
+    - pwd
+    - echo "Listing files in the current directory:"
+    - ls -la
+    # Build the Docker image using Dockerfile.production
+    - docker build -f Dockerfile.production -t my-vite-app:latest .
     # Create a container from the built image
     - docker create --name my-vite-app-container my-vite-app:latest
     # Copy the built files from the container to the CI/CD workspace
@@ -37,4 +42,4 @@ pages:
     paths:
       - public
   only:
-    - main  # or your default branch
+    - main # or your default branch
