@@ -12,21 +12,28 @@ function App() {
         <img src={gummicubexncoughlin} className="max-w-sm" />
         <Spacer vertical={6} verticalMobile={2} />
         <div className="max-w-4xl">
-          <h3>Pulumi + RDS Sample</h3>
+          <h2>Devops Sample</h2>
           <p className=" text-xl">
-            This page is intended to demonstrate a basic proficiency with the
-            <strong> Pulumi </strong>infrastructure as code framework. The data
-            that populates the chart below is being served from a back-end
-            created entirely with Pulumi. It includes an API Gateway, Lambda and
-            RDS PostgreSQL database.
-          </p>
-          <p className=" text-xl">
-            The source code for the project can be found in the Code Sandbox
-            below.
+            This simple application is intended to demonstrate a basic
+            proficiency with the devops technologies in the Gummicube stack.
           </p>
         </div>
         <Spacer vertical={6} verticalMobile={2} />
         <SampleDataDisplay />
+        <Spacer vertical={6} verticalMobile={2} />
+        <div className="max-w-4xl">
+          <h3>Back-End: Pulumi + AWS</h3>
+          <p className=" text-xl">
+            The data that populates the chart above is being served from a
+            back-end created entirely with <strong>Pulumi</strong>. It includes
+            an <strong>API Gateway</strong>, <strong>Lambda</strong> and{" "}
+            <strong>RDS PostgreSQL</strong> database.
+          </p>
+          <p className=" text-xl">
+            The source code for this back-end is in the Code Sandbox below.
+          </p>
+        </div>
+
         <Spacer vertical={6} verticalMobile={2} />
         {/* code sandbox */}
         <iframe
@@ -39,6 +46,33 @@ function App() {
             overflow: "hidden",
           }}
           title="ncoughlin/gummicube-demo/main"
+          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+        ></iframe>
+        <Spacer vertical={6} verticalMobile={2} />
+        <div className="max-w-4xl">
+          <h3>Front-End: Docker + GitLab Pipeline</h3>
+          <p className=" text-xl">
+            The Front-End you are currently viewing is a{" "}
+            <strong>Dockerized Vite/React/TypeScript </strong> application that
+            is automatically built and deployed using a{" "}
+            <strong>GitLab Pipeline</strong>.
+          </p>
+          <p className=" text-xl">
+            The source code for this front-end is in the Code Sandbox below.
+          </p>
+        </div>
+        <Spacer vertical={6} verticalMobile={2} />
+        <iframe
+          src="https://codesandbox.io/p/github/ncoughlin/gummicube-demo-front/main?import=true&embed=1&file=%2F.gitlab-ci.yml"
+          style={{
+            width: "100%",
+            height: "800px",
+            border: 0,
+            borderRadius: "4px",
+            overflow: "hidden",
+          }}
+          title="ncoughlin/gummicube-demo-front/main"
           allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
         ></iframe>
@@ -110,6 +144,15 @@ function App() {
                 target="_blank"
               >
                 {`Ncoughlin > PostgreSQL Basics`}
+              </a>
+            </li>
+            <li>
+              <a
+                className="font-medium text-primary underline underline-offset-4"
+                href="https://ncoughlin.com/posts/gitlab"
+                target="_blank"
+              >
+                {`Ncoughlin > GitLab`}
               </a>
             </li>
           </ul>

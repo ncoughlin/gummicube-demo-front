@@ -51,7 +51,7 @@ const SampleDataDisplay = () => {
     <div className="w-full">
       <Card>
         <CardHeader>
-          <CardTitle>Time-Series (Sample Data)</CardTitle>
+          <CardTitle>Time-Series</CardTitle>
           <CardDescription>
             The back-end infrastructure (API, Lambda and PostgreSQL Database)
             that serves this chart data was generated with Pulumi IAC framework.
