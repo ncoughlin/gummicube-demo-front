@@ -10,25 +10,17 @@ stages:
   - build
   - deploy
 
-before_script:
-  - docker info
-
 build:
   stage: build
   script:
-    # Debugging: Display current directory and list files
-    - echo "Current directory:"
-    - pwd
-    - echo "Listing files in the current directory:"
-    - ls -la
     # Build the Docker image using Dockerfile.production
-    - docker build -f Dockerfile.production -t my-vite-app:latest .
+    - docker build -f Dockerfile.production -t gummicube-demo-front:latest .
     # Create a container from the built image
-    - docker create --name my-vite-app-container my-vite-app:latest
+    - docker create --name gummicube-demo-front-container gummicube-demo-front:latest
     # Copy the built files from the container to the CI/CD workspace
-    - docker cp my-vite-app-container:/app/dist ./dist
+    - docker cp gummicube-demo-front-container:/app/dist ./dist
     # Clean up the container
-    - docker rm my-vite-app-container
+    - docker rm gummicube-demo-front-container
   artifacts:
     paths:
       - dist/
@@ -36,15 +28,10 @@ build:
 pages:
   stage: deploy
   script:
-    - echo "Listing current directory contents before moving:"
-    - ls -la
     # Create public directory if it doesn't exist
     - mkdir -p public
     # Move contents of dist/ into public/
     - mv dist/* public/
-    - echo "Contents of public/:"
-    - ls -la public/
-
   artifacts:
     paths:
       - public
